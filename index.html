@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NGOBROL Walkie Talkie</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase compat -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="firebase.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="radio-top">
+      <div class="brand">Ngobrol Walkie</div>
+      <div id="statusSignal" class="signal">●</div>
+    </header>
+
+    <main class="radio-body">
+      <section class="screen" id="screen">
+        <div class="info"><span id="displayUser">-</span></div>
+        <div class="info"><strong>Room:</strong> <span id="displayRoom">-</span></div>
+        <div class="meters">
+          <div>Sinyal: <span id="signalBar">▮▮▮▮▯</span></div>
+          <div>Suara: <span id="audioLevel">▮▯▯▯▯</span></div>
+        </div>
+        <div id="onlineList" class="online">👥 Online: <span id="onlineCount">0</span></div>
+      </section>
+
+      <div class="controls">
+        <div class="room-select-row">
+          <select id="roomSelect" class="room-select"></select>
+          <div class="updown">
+            <button id="btnUp" class="small">⬆ UP</button>
+            <button id="btnDown" class="small">⬇ DOWN</button>
+          </div>
+        </div>
+
+        <div class="ptt-row">
+          <button id="btnPTT" class="ptt">PTT</button>
+          <button id="btnHold" class="hold">HOLD</button>
+        </div>
+
+        <div class="auth-row" id="authRow">
+          <input id="email" placeholder="Email" class="input" />
+          <input id="password" placeholder="Password" type="password" class="input" />
+          <div class="auth-buttons">
+            <button id="btnLogin" class="small">Login</button>
+            <button id="btnRegister" class="small">Register</button>
+          </div>
+        </div>
+
+        <div style="text-align:left;margin-top:8px;color:#9f9;font-size:12px;">
+          Gunakan Dengan Bijak, Admin dan Developer Tidak Bertanggungjawab Atas Penyalahgunaannya!!!
+        </div>
+
+        <div class="logout-row">
+          <button id="btnLogout" class="small hidden">Logout</button>
+        </div>
+      </div>
+    </main>
+    <footer class="radio-foot">Designed for All, PTT by Bogen Solo</footer>
+  </div>
+
+  <audio id="remoteAudio" autoplay></audio>
+
+  <script src="app.js"></script>
+</body>
+</html>
